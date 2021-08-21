@@ -1,3 +1,5 @@
 module.exports = {
-  publicPath: '/ocue/'
+  publicPath: process.env.NODE_ENV === 'production'
+  ? '/reponame'
+  : '/'
 }
