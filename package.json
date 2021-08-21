@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vite preview",
-    "build": "vite build",
+    "build": "vite build --base=/ocue/",
     "lint": "vue-cli-service lint",
     "dev": "vite"
   },
