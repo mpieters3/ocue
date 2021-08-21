@@ -2,19 +2,18 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import goTo from 'vuetify/es5/services/goto'
 import Missing from '../views/404.vue'
-import Demo from '../views/Demo.vue'
-
 
 Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
-        component: Demo,
+        name: 'LandingHome',
         meta: {
-            title: 'Imroz - VueJS Creative Agency and Portfolio Template'
-        }
+            title: 'OCUE - Orange County Underwater Explorers'
+        },
+        component: () =>
+            import ('../views/all-home-version/LandingDarkPortfolio.vue')
     },
-
     {
         path: '/about',
         name: 'About',

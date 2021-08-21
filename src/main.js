@@ -10,15 +10,18 @@ import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 import '@fortawesome/fontawesome-free/css/all.css'
 import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
 import './assets/scss/main.scss'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 
 Vue.config.productionTip = false;
 Vue.use(VueParticles);
 Vue.use(CoolLightBox);
 Vue.use(VueScrollactive);
+Vue.use(VueAxios, axios)
 
-
-new Vue({
+const app = new Vue({
     router,
     vuetify,
     render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');

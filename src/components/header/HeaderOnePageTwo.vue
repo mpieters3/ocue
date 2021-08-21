@@ -74,8 +74,8 @@
       <div class="social-share-inner">
         <socialTwo />
       </div>
-      <a class="btn-default btn-border btn-opacity" target="_blank" href="https://themeforest.net/checkout/from_item/32012548?license=regular">
-        <span>buy now</span>
+      <a class="btn-default btn-border btn-opacity" target="_blank" href="mailto: contact@ocunderwaterexplorers.org">
+        <span>Contact</span>
       </a>
       <v-btn
         icon
@@ -103,10 +103,8 @@
       items: [
         { title: "Home", to: "#home" },
         { title: "About", to: "#about" },
-        { title: "Service", to: "#service" },
-        { title: "Portfolio", to: "#portfolio" },
+        { title: "Events", to: "#events" },
         { title: "Blog", to: "#blog" },
-        { title: "Contact", to: "#contact" },
       ],
       icon: "menu",
       closeIcon: "x",

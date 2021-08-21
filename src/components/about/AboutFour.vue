@@ -8,7 +8,6 @@
     <v-col lg="7" md="7" cols="12">
       <div class="about-inner inner">
         <div class="section-title">
-          <span class="subtitle">My About Details</span>
           <h2 class="heading-title">About Me</h2>
           <p class="description mt_dec--20">
             There are many variations of passages of Lorem Ipsum available, but

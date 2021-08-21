@@ -4,7 +4,7 @@
   >
     <li v-for="(social, i) in socialList" :key="i">
       <a target="_blank" :href="social.url"
-        ><i class="fab" :class="social.icon"></i
+        ><i :class="social.icon">{{ social.content }}</i
       ></a>
     </li>
   </ul>
@@ -15,20 +15,14 @@
       return {
         socialList: [
           {
-            icon: "fa-facebook-f",
-            url: "https://www.facebook.com/",
+            icon: "fab fa-facebook-f",
+            url: "https://www.facebook.com/groups/OrangeCountyUnderwaterExplorers",
+            content: '',
           },
           {
-            icon: "fa-linkedin-in",
-            url: "https://www.linkedin.com/",
-          },
-          {
-            icon: "fa-twitter",
-            url: "https://twitter.com/",
-          },
-          {
-            icon: "fa-instagram",
-            url: "https://instagram.com/",
+            icon: "fab fa-instagram",
+            url: "https://www.instagram.com/ocunderwaterexplorers/",
+            content: '',
           },
         ],
       };

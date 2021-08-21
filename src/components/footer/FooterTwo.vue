@@ -18,7 +18,7 @@
             <ul class="justify-center social-share d-flex liststyle">
               <li v-for="(social, i) in socialList" :key="i">
                 <a :href="social.url" target="_blank"
-                  ><i class="fab" :class="social.icon"></i
+                  ><i :class="social.icon">{{ social.content }}</i
                 ></a>
               </li>
             </ul>
@@ -53,20 +53,14 @@
         logo: require("../../assets/images/logo/logo-light.png"),
         socialList: [
           {
-            icon: "fa-facebook-f",
-            url: "https://www.facebook.com/",
-          },
-          {
-            icon: "fa-linkedin-in",
-            url: "https://www.linkedin.com/",
-          },
-          {
-            icon: "fa-twitter",
-            url: "https://twitter.com/",
+            icon: "fab fa-facebook-f",
+            url: "https://www.facebook.com/groups/OrangeCountyUnderwaterExplorers",
+            content: '',
           },
           {
             icon: "fab fa-instagram",
-            url: "https://www.instagram.com/",
+            url: "https://www.instagram.com/ocunderwaterexplorers/",
+            content: '',
           },
         ],
       };

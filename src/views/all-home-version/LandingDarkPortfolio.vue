@@ -14,10 +14,9 @@
               <div class="text-left inner">
                 <span>Welcome to my World</span>
                 <h1 class="heading-title">
-                  I’m Joe Biden <br />
-                  <span> JS Developer.</span>
+                  I’m Fred Espino <br />
+                  <span> GUE Diver.</span>
                 </h1>
-                <h2>based in USA.</h2>
                 <div class="slide-btn mt--30">
                   <scrollactive
                     active-class="v-btn--active"
@@ -57,56 +56,22 @@
     <!-- Start About Area  -->
 
     <!-- Start Service Area  -->
-    <div
-      class="service-area creative-service-wrapper pt--120 bg_color--8"
-      id="service"
-    >
-      <div class="container">
-        <v-row>
-          <v-col lg="12">
-            <div class="text-center section-title mb--30 mb_sm--0">
-              <span class="subtitle">What I can do for you</span>
-              <h2 class="heading-title">My Awesome Service</h2>
-              <p>
-                There are many variations of passages of Lorem Ipsum available,
-                <br />
-                but the majority have suffered alteration.
-              </p>
-            </div>
-          </v-col>
-        </v-row>
-        <ServiceThree />
-      </div>
-    </div>
-    <!-- Start Service Area  -->
-
-    <!-- Start Portfolio Area -->
-    <div class="portfolio-area pt--120 bg_color--8" id="portfolio">
+    <div class="rn-blog-area pt--120 bg_color--8" id="events">
       <v-container>
-        <v-row>
-          <v-col lg="12">
-            <div class="text-center section-title mb--30 mb_sm--0">
-              <span class="subtitle">My complete project</span>
-              <h2 class="heading-title">My Latest Project</h2>
+        <v-row align="end" class="mb--20">
+          <v-col md="12">
+            <div class="text-center section-title">
+              <h2 class="heading-title">Upcoming Events</h2>
               <p>
-                There are many variations of passages of Lorem Ipsum available,
-                <br />
-                but the majority have suffered alteration.
+                Join us on one of our upcoming events
               </p>
             </div>
           </v-col>
         </v-row>
-        <PortfolioFour />
-        <v-row>
-          <v-col lg="12">
-            <div class="text-center view-more-btn mt--60 mt_sm--30">
-              <a class="btn-default" href="#">View Projects</a>
-            </div>
-          </v-col>
-        </v-row>
+        <Events />
       </v-container>
     </div>
-    <!-- End Portfolio Area -->
+    <!-- Start Service Area  -->
 
     <!-- Start Blog Area  -->
     <div class="rn-blog-area pt--120 bg_color--8" id="blog">
@@ -114,12 +79,9 @@
         <v-row align="end" class="mb--20">
           <v-col md="12">
             <div class="text-center section-title">
-              <span class="subtitle">Latest news</span>
               <h2 class="heading-title">Latest News</h2>
               <p>
-                There are many variations of passages of Lorem Ipsum available,
-                <br />
-                but the majority have suffered alteration.
+                What's happening in OCUE?
               </p>
             </div>
           </v-col>
@@ -128,23 +90,6 @@
       </v-container>
     </div>
     <!-- End Blog Area  -->
-
-    <!-- Start Contact Area  -->
-    <div class="rn-contact-area ptb--120 bg_color--8" id="contact">
-      <div class="contact-form--1">
-        <v-container>
-          <Contact>
-            <img
-              slot="contact-img"
-              class="w-100"
-              src="../../assets/images/about/about-13.jpg"
-              alt="contact images"
-            />
-          </Contact>
-        </v-container>
-      </div>
-    </div>
-    <!-- End Contact Area  -->
 
     <!-- Start Footer Area  -->
     <Footer />
@@ -155,21 +100,17 @@
 <script>
   import HeaderOnePageTwo from "../../components/header/HeaderOnePageTwo";
   import AboutFour from "../../components/about/AboutFour";
-  import ServiceThree from "../../components/service/ServiceThree";
-  import PortfolioFour from "../../components/portfolio/PortfolioFour";
   import Blog from "../../components/blog/Blog";
-  import Contact from "../../components/contact/Contact";
   import Footer from "../../components/footer/FooterTwo";
+  import Events from "../../components/events/Events";
 
   export default {
     components: {
       HeaderOnePageTwo,
       AboutFour,
-      ServiceThree,
-      PortfolioFour,
       Blog,
-      Contact,
       Footer,
+      Events,
     },
     data() {
       return {};
