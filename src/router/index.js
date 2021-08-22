@@ -18,7 +18,7 @@ const routes = [{
         path: '*',
         component: Missing,
         meta: {
-            title: '404 - VueJS Creative Agency and Portfolio Template'
+            title: '404 - OCUE'
         },
     }
 ]

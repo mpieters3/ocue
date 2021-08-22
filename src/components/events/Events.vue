@@ -1,5 +1,43 @@
 <template>
-    <!-- Start Single Portfolio  -->
+  <div>
+   <v-dialog
+      v-if="event"
+      v-model="event"
+      fullscreen
+      hide-overlay
+      overflow
+      transition="dialog-bottom-transition"
+    >
+      <v-card class="active-dark .bg_color--8" style="background: #0e1525!important;">
+        <v-toolbar
+          dark
+          class="fixed-bar"
+          extension-height="64px"
+        >
+          <v-toolbar-title><h3>Details</h3></v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-toolbar-items><h2>
+            <a href="#" @click="event=null" class="rn-btn btn-opacity" style="font-size:20px;">
+              Close
+            </a>
+          </h2></v-toolbar-items>
+        </v-toolbar>
+        <div class="about-area">
+          <div class="about-inner inner" style="padding: 30px;">
+            <div class="section-title">
+              <h4 class="heading-title">{{ event.summary }}</h4>
+              <h5 class="heading-title">{{ event.location }}</h5>
+              <h5 class="heading-title">{{ event.startFriendly }}</h5>
+            </div>
+          <!-- End .section-title -->
+          </div>
+          <br />
+          <div style="padding-left: 30px;padding-right:30px;white-space:pre-wrap">
+            <p style="color: rgba(198, 201, 216, 0.75);white-space:pre-wrap" class="description mt_dec--20" v-html="event.description"></p>
+          </div>
+        </div>
+      </v-card>
+    </v-dialog>
     <VueSlickCarousel
       v-if="events.length > 0"
       v-bind="settings"
@@ -19,45 +57,51 @@
         <v-container>
           <div class="im_box mt--30">
             <div class="thumbnail">
-              <router-link to="/blog-details">
+              <a href="#" @click="event=slider">
                 <img class="w-100" :src="slider.image" alt="Blog Images" />
-              </router-link>
+              </a>
             </div>
             <div class="content">
               <div class="inner">
                 <div class="content_heading">
                   <div class="category_list">
-                    <router-link to="/blog-details">{{
+                    <a href="#" @click="event=slider">{{
                       slider.startFriendly
-                    }}</router-link>
+                    }}</a>
                   </div>
                   <h4 class="heading-title">
-                    <router-link to="/blog-details">{{ slider.summary }}</router-link> <br />
+                    <a href="#" @click="event=slider">{{ slider.summary }}</a> <br />
                   </h4>
                   <h5 class="heading-subtitle">
-                    <router-link to="/blog">{{ slider.location }}</router-link>
+                    <a href="#" @click="event=slider">{{ slider.location }}</a>
                   </h5>
                 </div>
                 <div class="content_footer">
-                  <router-link to="/blog-details" class="rn-btn btn-opacity">
+                  <a href="#" @click="event=slider" class="rn-btn btn-opacity">
                     Read More
-                  </router-link>
+                  </a>
                 </div>
               </div>
-              <router-link
+              <a href="#" @click="event=slider"
                 class="transparent_link"
-                to="/blog-details"
-              ></router-link>
+              ></a>
             </div>
           </div>
         </v-container>
       </div>
       <!-- End Single Slide  -->
     </VueSlickCarousel>
-    <!-- End Single Portfolio  -->
+  </div>
 </template>
-
-
+<style scoped>
+.fixed-bar {
+  position: sticky;
+  position: -webkit-sticky; /* for Safari */
+  top: 0em;
+  z-index: 2;
+  background-color: rgb(9, 16, 32) !important;
+}
+</style>
 <script>
   import VueSlickCarousel from 'vue-slick-carousel'
   import 'vue-slick-carousel/dist/vue-slick-carousel.css'
@@ -70,6 +114,8 @@
     },
     data() {
       return {
+        dialog: false,
+        event: null,
         events: [],
         settings: {
           dots: true,

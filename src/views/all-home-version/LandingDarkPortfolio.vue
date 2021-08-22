@@ -44,12 +44,21 @@
       <div class="about-wrapper">
         <div class="container">
           <AboutFour>
-            <img
+            <v-carousel
               slot="thum-img"
-              class="w-100"
-              src="../../assets/images/about/ocue-about-8.jpg"
-              alt="About Images"
-            />
+              hide-delimiters
+              cycle
+              :progress="false"
+              :show-arrows="false"
+            >
+              <v-carousel-item
+                v-for="(item,i) in photos"
+                :key="i"
+                :src="item.src"
+                reverse-transition="fade-transition"
+                transition="fade-transition"
+              ></v-carousel-item>
+            </v-carousel>
           </AboutFour>
         </div>
       </div>
@@ -116,7 +125,25 @@
       Events,
     },
     data() {
-      return {};
+      return {
+        photos: [
+          {
+            src: require("../../assets/images/about/ocue-about-1.jpg"),
+          },
+          {
+            src: require("../../assets/images/about/ocue-about-2.jpg"),
+          },
+          {
+            src: require("../../assets/images/about/ocue-about-3.jpg"),
+          },
+          {
+            src: require("../../assets/images/about/ocue-about-4.jpg"),
+          },
+          {
+            src: require("../../assets/images/about/ocue-about-5.jpg"),
+          },
+        ]
+      };
     },
   };
 </script>
