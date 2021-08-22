@@ -24,7 +24,7 @@ const routes = [{
 ]
 
 const router = new VueRouter({
-    base: '/ocue/',
+    base: '/',
     routes,
     scrollBehavior: (to, from, savedPosition) => {
         let scrollTo = 0
