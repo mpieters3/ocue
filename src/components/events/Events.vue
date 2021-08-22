@@ -57,7 +57,7 @@
         <v-container>
           <div class="im_box mt--30">
             <div class="thumbnail">
-              <a href="#" @click="event=slider">
+              <a @click="event=slider">
                 <img class="w-100" :src="slider.image" alt="Blog Images" />
               </a>
             </div>
@@ -65,24 +65,24 @@
               <div class="inner">
                 <div class="content_heading">
                   <div class="category_list">
-                    <a href="#" @click="event=slider">{{
+                    <a @click="event=slider">{{
                       slider.startFriendly
                     }}</a>
                   </div>
                   <h4 class="heading-title">
-                    <a href="#" @click="event=slider">{{ slider.summary }}</a> <br />
+                    <a @click="event=slider">{{ slider.summary }}</a> <br />
                   </h4>
                   <h5 class="heading-subtitle">
-                    <a href="#" @click="event=slider">{{ slider.location }}</a>
+                    <a @click="event=slider">{{ slider.location }}</a>
                   </h5>
                 </div>
                 <div class="content_footer">
-                  <a href="#" @click="event=slider" class="rn-btn btn-opacity">
+                  <a @click="event=slider" class="rn-btn btn-opacity">
                     Read More
                   </a>
                 </div>
               </div>
-              <a href="#" @click="event=slider"
+              <a @click="event=slider"
                 class="transparent_link"
               ></a>
             </div>
