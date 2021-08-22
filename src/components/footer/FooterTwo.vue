@@ -4,13 +4,13 @@
     <div class="wrapper plr--50 plr_sm--20">
       <v-row align="center">
         <v-col lg="4" md="4" sm="6" cols="12">
-          <div class="inner">
-            <div class="text-center d-block logo text-sm-left mb_sm--20">
-              <router-link to="/"
-                ><img :src="logo" alt="Logo images"
-              /></router-link>
+          <div class="text-center inner text-md-right mt_md--20 mt_sm--20">
+            <div class="text">
+              <p>
+                Photography by Keith Chu & Nadia Lee
+              </p>
             </div>
-          </div>
+          </div>    
         </v-col>
         <!-- End .col -->
         <v-col lg="4" md="4" sm="6" cols="12">
@@ -32,8 +32,8 @@
                 Copyright © {{ new Date().getFullYear() }} <a
                   target="_blank"
                   class="copyright_txt"
-                  href="https://themeforest.net/user/ib-themes"
-                  >ib-themes</a> All Rights
+                  href="http://ocunderwaterexplorers.org/"
+                  >OC Underwater Explorers</a> All Rights
                 Reserved.
               </p>
             </div>

@@ -17,7 +17,7 @@ import VueAxios from 'vue-axios'
 Vue.config.productionTip = false;
 Vue.use(VueParticles);
 Vue.use(CoolLightBox);
-Vue.use(VueScrollactive);
+//Vue.use(VueScrollactive);
 Vue.use(VueAxios, axios)
 
 const app = new Vue({

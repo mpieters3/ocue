@@ -12,23 +12,24 @@
           <v-row>
             <v-col cols="12">
               <div class="text-left inner">
-                <span>Welcome to my World</span>
+                <span style="color:white;">Welcome to</span>
                 <h1 class="heading-title">
-                  I’m Fred Espino <br />
-                  <span> GUE Diver.</span>
+                  <span> Orange <br/>County</span> <br />
+                  Underwater<br />Explorers
                 </h1>
                 <div class="slide-btn mt--30">
-                  <scrollactive
+                  <div
                     active-class="v-btn--active"
                     bezier-easing-value=".5,0,.35,1"
                     :offset="71"
                   >
                     <a
                       class="btn-default btn-border btn-opacity scrollactive-item"
-                      href="#contact"
-                      >Download CV</a
-                    >
-                  </scrollactive>
+                      onclick="window.open('https://www.youtube.com/watch?v=0Q1ZqH-kqUw','_blank')"
+
+                      >#DiveGUE
+                    </a>
+                  </div>
                 </div>
               </div>
             </v-col>
@@ -46,7 +47,7 @@
             <img
               slot="thum-img"
               class="w-100"
-              src="../../assets/images/about/about-8.jpg"
+              src="../../assets/images/about/ocue-about-8.jpg"
               alt="About Images"
             />
           </AboutFour>
@@ -74,6 +75,7 @@
     <!-- Start Service Area  -->
 
     <!-- Start Blog Area  -->
+    <!-- 
     <div class="rn-blog-area pt--120 bg_color--8" id="blog">
       <v-container>
         <v-row align="end" class="mb--20">
@@ -89,6 +91,7 @@
         <Blog />
       </v-container>
     </div>
+    -->
     <!-- End Blog Area  -->
 
     <!-- Start Footer Area  -->

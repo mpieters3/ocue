@@ -7,15 +7,18 @@
       width="320"
     >
       <v-list-item class="pa-5">
-         <div class="logo">
+        <!--
+        <div class="logo">
           <img src="../../assets/images/logo/logo-symbol-dark.png" alt="brand-image">
        </div>
+
+        -->
         <v-spacer></v-spacer>
         <v-btn class="close-icon" icon @click="drawer = !drawer" v-html="iconSvg(closeIcon)">
         </v-btn>
       </v-list-item>
 
-        <scrollactive
+      <div
         active-class="v-btn--active"
         bezier-easing-value=".5,0,.35,1"
         :offset="70"
@@ -34,8 +37,28 @@
             </v-list-item-content>
           </v-list-item>
           <!-- End mobile menu sidebar item list -->
+          <v-list-item
+            :ripple="false"
+            link
+            onclick="window.open('https://the-ocue-store.myspreadshop.com/','_blank')"
+            class="scrollactive-item"
+          >
+            <v-list-item-content>
+              <v-list-item-title>Store</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            :ripple="false"
+            link
+            onclick="window.open('mailto: contact@ocunderwaterexplorers.org','_blank')"
+            class="scrollactive-item"
+          >
+            <v-list-item-content>
+              <v-list-item-title>Contact</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </v-list>
-      </scrollactive>
+      </div>
     </v-navigation-drawer>
     <!-- End sidebar mobile menu -->
 
@@ -52,7 +75,7 @@
       <!-- End brand logo -->
 
       <v-toolbar-items class="hidden-xs-only hidden-sm-only height-auto ml--35">
-        <scrollactive
+        <div
           active-class="v-btn--active"
           bezier-easing-value=".5,0,.35,1"
           :offset="71"
@@ -67,7 +90,15 @@
             class="scrollactive-item"
             >{{ item.title }}</v-btn
           >
-        </scrollactive>
+          <v-btn
+            link
+            :ripple="false"
+            text
+            class="scrollactive-item"
+            onclick="window.open('https://the-ocue-store.myspreadshop.com/','_blank')"
+            >Store</v-btn
+          >
+        </div>
       </v-toolbar-items>
       <!-- End header menu item -->
       <v-spacer></v-spacer>
@@ -104,7 +135,7 @@
         { title: "Home", to: "#home" },
         { title: "About", to: "#about" },
         { title: "Events", to: "#events" },
-        { title: "Blog", to: "#blog" },
+        // { title: "Blog", to: "#blog" },
       ],
       icon: "menu",
       closeIcon: "x",
