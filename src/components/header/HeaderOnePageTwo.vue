@@ -74,7 +74,7 @@
       </router-link>
       <!-- End brand logo -->
 
-      <v-toolbar-items class="hidden-xs-only hidden-sm-only height-auto ml--35">
+      <v-toolbar-items class="hidden-xs-only hidden-sm-only height-auto ml--15">
         <div
           active-class="v-btn--active"
           bezier-easing-value=".5,0,.35,1"

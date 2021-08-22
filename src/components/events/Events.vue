@@ -17,7 +17,7 @@
           <v-toolbar-title><h3>Details</h3></v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items><h2>
-            <a href="#" @click="event=null" class="rn-btn btn-opacity" style="font-size:20px;">
+            <a @click="event=null" class="rn-btn btn-opacity" style="font-size:20px;">
               Close
             </a>
           </h2></v-toolbar-items>

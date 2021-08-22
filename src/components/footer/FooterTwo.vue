@@ -33,7 +33,7 @@
                   target="_blank"
                   class="copyright_txt"
                   href="http://ocunderwaterexplorers.org/"
-                  >OC Underwater Explorers</a> All Rights
+                  >OC Underwater Explorers</a>  <br />All Rights
                 Reserved.
               </p>
             </div>
