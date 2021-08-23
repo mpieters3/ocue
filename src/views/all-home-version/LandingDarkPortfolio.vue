@@ -50,14 +50,17 @@
               cycle
               :progress="false"
               :show-arrows="false"
+              eager
             >
               <v-carousel-item
                 v-for="(item,i) in photos"
                 :key="i"
-                :src="item.src"
                 reverse-transition="fade-transition"
                 transition="fade-transition"
-              ></v-carousel-item>
+                eager
+              >
+                <v-img :src="item.src" height="100%" eager/>
+              </v-carousel-item>
             </v-carousel>
           </AboutFour>
         </div>
