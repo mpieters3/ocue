@@ -162,7 +162,7 @@
           params: {
             'timeMin': (new Date()).toISOString(),
             'maxResults': 10,
-            'key': "AIzaSyDFAU8DApgL7SWIneH5SQvQyi_ke5tFZiI",
+            'key': process.env.VUE_APP_CALENDAR_API_KEY,
           },
         },
       );

@@ -1,4 +1,4 @@
-# imroz-vue-template
+# OCUE Portal
 
 ## Project setup
 
