@@ -108,6 +108,18 @@
     <!-- End Footer Area  -->
   </div>
 </template>
+<style scoped>
+  .fade-transition-leave-active{
+      position: absolute;
+      width:100%;
+  }
+
+  .fade-transition-enter-active {
+    position: absolute;
+    top: 0;
+    width:100%;
+  }
+</style>
 
 <script>
   import HeaderOnePageTwo from "../../components/header/HeaderOnePageTwo";
