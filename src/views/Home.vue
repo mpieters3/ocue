@@ -1,7 +1,7 @@
 <template>
   <div class="active-dark bg_color--9">
     <!-- Start Header Area -->
-    <HeaderOnePageTwo />
+    <Header />
     <!-- End Header Area -->
     <!-- Start Slider Area  -->
     <div class="slider-wrapper poss_relative" id="home">
@@ -43,7 +43,7 @@
     <div class="about-area pt--120 bg_color--8" id="about">
       <div class="about-wrapper">
         <div class="container">
-          <AboutFour>
+          <About>
             <v-carousel
               slot="thum-img"
               hide-delimiters
@@ -62,7 +62,7 @@
                 <v-img :src="item.src" height="100%" eager/>
               </v-carousel-item>
             </v-carousel>
-          </AboutFour>
+          </About>
         </div>
       </div>
     </div>
@@ -125,16 +125,16 @@
 </style>
 
 <script>
-  import HeaderOnePageTwo from "../../components/header/HeaderOnePageTwo";
-  import AboutFour from "../../components/about/AboutFour";
-  import Blog from "../../components/blog/Blog";
-  import Footer from "../../components/footer/FooterTwo";
-  import Events from "../../components/events/Events";
+  import Header from "../components/header/Header";
+  import About from "../components/about/About";
+  import Blog from "../components/blog/Blog";
+  import Footer from "../components/footer/Footer";
+  import Events from "../components/events/Events";
 
   export default {
     components: {
-      HeaderOnePageTwo,
-      AboutFour,
+      Header,
+      About,
       Blog,
       Footer,
       Events,
@@ -143,19 +143,19 @@
       return {
         photos: [
           {
-            src: require("../../assets/images/about/ocue-about-1.jpg"),
+            src: require("../assets/images/about/ocue-about-1.jpg"),
           },
           {
-            src: require("../../assets/images/about/ocue-about-2.jpg"),
+            src: require("../assets/images/about/ocue-about-2.jpg"),
           },
           {
-            src: require("../../assets/images/about/ocue-about-3.jpg"),
+            src: require("../assets/images/about/ocue-about-3.jpg"),
           },
           {
-            src: require("../../assets/images/about/ocue-about-4.jpg"),
+            src: require("../assets/images/about/ocue-about-4.jpg"),
           },
           {
-            src: require("../../assets/images/about/ocue-about-5.jpg"),
+            src: require("../assets/images/about/ocue-about-5.jpg"),
           },
         ]
       };

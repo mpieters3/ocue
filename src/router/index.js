@@ -12,7 +12,7 @@ const routes = [{
             title: 'OCUE - Orange County Underwater Explorers'
         },
         component: () =>
-            import ('../views/all-home-version/LandingDarkPortfolio.vue')
+            import ('../views/Home.vue')
     },
     {
         path: '*',

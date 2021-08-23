@@ -1,276 +1,116 @@
 <template>
   <div>
     <v-navigation-drawer
-      class="hidden-md-and-up"
+      class="hidden-md-and-up header-one-page-nav-drawer"
       v-model="drawer"
-      absolute
-      temporary
+      fixed
       width="320"
     >
       <v-list-item class="pa-5">
+        <!--
         <div class="logo">
-          <img
-            src="../../assets/images/logo/logo-symbol-dark.png"
-            alt="brand-image"
-          />
-        </div>
+          <img src="../../assets/images/logo/logo-symbol-dark.png" alt="brand-image">
+       </div>
+
+        -->
         <v-spacer></v-spacer>
-        <v-btn
-          class="close-icon"
-          icon
-          @click="drawer = !drawer"
-          v-html="iconSvg(closeIcon)"
-        >
+        <v-btn class="close-icon" icon @click="drawer = !drawer" v-html="iconSvg(closeIcon)">
         </v-btn>
       </v-list-item>
 
-      <v-list>
-        <v-list-group
-          v-for="item in homeVersionSidebarDropDownItems"
-          :key="item.title"
-          v-model="item.active"
-          :ripple="false"
-        >
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title"></v-list-item-title>
-            </v-list-item-content>
-          </template>
-
+      <div
+        active-class="v-btn--active"
+        bezier-easing-value=".5,0,.35,1"
+        :offset="70"
+      >
+        <v-list>
           <v-list-item
-            link
-            v-for="child in item.items"
-            :to="child.to"
-            :key="child.title"
             :ripple="false"
+            v-for="item in items"
+            :key="item.title"
+            :to="item.to"
+            link
+            class="scrollactive-item"
           >
             <v-list-item-content>
-              <v-list-item-title v-text="child.title"></v-list-item-title>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-        </v-list-group>
-        <!-- End sidebar home dropdown item list -->
-
-        <v-list-group
-          v-for="item in servicesSidebarDropDownItems"
-          :key="item.title"
-          v-model="item.active"
-          :ripple="false"
-        >
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title"></v-list-item-title>
-            </v-list-item-content>
-          </template>
-
+          <!-- End mobile menu sidebar item list -->
           <v-list-item
-            link
             :ripple="false"
-            v-for="child in item.items"
-            :to="child.to"
-            :key="child.title"
+            link
+            onclick="window.open('https://the-ocue-store.myspreadshop.com/','_blank')"
+            class="scrollactive-item"
           >
             <v-list-item-content>
-              <v-list-item-title v-text="child.title"></v-list-item-title>
+              <v-list-item-title>Store</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-        </v-list-group>
-        <!-- End sidebar services dropdown item list -->
-
-        <v-list-group
-          v-for="item in pagesSidebarDropDownItems"
-          :key="item.title"
-          v-model="item.active"
-          :ripple="false"
-        >
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title"></v-list-item-title>
-            </v-list-item-content>
-          </template>
-
           <v-list-item
-            link
             :ripple="false"
-            v-for="child in item.items"
-            :to="child.to"
-            :key="child.title"
+            link
+            onclick="window.open('mailto: contact@ocunderwaterexplorers.org','_blank')"
+            class="scrollactive-item"
           >
             <v-list-item-content>
-              <v-list-item-title v-text="child.title"></v-list-item-title>
+              <v-list-item-title>Contact</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-        </v-list-group>
-        <!-- End sidebar pages dropdown item list -->
-
-        <v-list-group
-          v-for="item in blocksSidebarDropDownItems"
-          :key="item.title"
-          v-model="item.active"
-          :ripple="false"
-        >
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.title"></v-list-item-title>
-            </v-list-item-content>
-          </template>
-
-          <v-list-item
-            link
-            :ripple="false"
-            v-for="child in item.items"
-            :to="child.to"
-            :key="child.title"
-          >
-            <v-list-item-content>
-              <v-list-item-title v-text="child.title"></v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-group>
-        <!-- End sidebar block dropdown item list -->
-
-        <v-list-item
-          :ripple="false"
-          v-for="item in items"
-          :key="item.title"
-          :to="item.to"
-          link
-        >
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <!-- End mobile menu sidebar item list -->
-      </v-list>
+        </v-list>
+      </div>
     </v-navigation-drawer>
     <!-- End sidebar mobile menu -->
 
     <v-app-bar
       dark
-      elevation="0"
       color="transparent"
-      absolute
-      class="default-header"
+      fixed
+      elevate-on-scroll
+      class="header-one-page-nav header-one-page-nav-two"
     >
       <router-link to="/" class="logo">
-        <slot name="logo"></slot>
+        <img src="../../assets/images/logo/logo-symbol-dark.png" />
       </router-link>
       <!-- End brand logo -->
-      <v-spacer></v-spacer>
 
-      <v-toolbar-items class="hidden-xs-only hidden-sm-only height-auto">
-        <v-menu
-          open-on-hover
-          bottom
-          min-width="240"
-          offset-y
-          transition="scroll-y-reverse-transition"
+      <v-toolbar-items class="hidden-xs-only hidden-sm-only height-auto ml--15">
+        <div
+          active-class="v-btn--active"
+          bezier-easing-value=".5,0,.35,1"
+          :offset="71"
         >
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn :ripple="false" text v-bind="attrs" v-on="on">
-              Home
-            </v-btn>
-          </template>
-
-          <v-list>
-            <v-list-item
-              link
-              v-for="(item, index) in HomeVerisiondropDownItems"
-              :key="index"
-              :to="item.to"
-            >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-        <!-- End Home variants dropdown -->
-        <v-menu
-          open-on-hover
-          bottom
-          min-width="240"
-          offset-y
-          transition="scroll-y-reverse-transition"
-        >
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn :ripple="false" text v-bind="attrs" v-on="on">
-              Service
-            </v-btn>
-          </template>
-
-          <v-list>
-            <v-list-item
-              link
-              v-for="(item, index) in ServicesdropDownItems"
-              :key="index"
-              :to="item.to"
-            >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-        <!-- End Services dropdown -->
-        <v-btn :ripple="false" text to="/about">About</v-btn>
-
-        <v-menu
-          open-on-hover
-          bottom
-          min-width="240"
-          offset-y
-          transition="scroll-y-reverse-transition"
-        >
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn :ripple="false" text v-bind="attrs" v-on="on">
-              Pages
-            </v-btn>
-          </template>
-
-          <v-list>
-            <v-list-item
-              link
-              v-for="(item, index) in PagesdropDownItems"
-              :key="index"
-              :to="item.to"
-            >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-        <!-- End pages dropdown -->
-
-        <v-menu
-          min-width="240"
-          open-on-hover
-          bottom
-          offset-y
-          transition="scroll-y-reverse-transition"
-        >
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn text :ripple="false" v-bind="attrs" v-on="on">
-              Blocks
-            </v-btn>
-          </template>
-
-          <v-list>
-            <v-list-item
-              link
-              v-for="(item, index) in blocksDropDownItems"
-              :key="index"
-              :to="item.to"
-            >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-        <!-- End blocks dropdown -->
-        <v-btn :ripple="false" text to="/contact">Contact</v-btn>
+          <v-btn
+            v-for="item in items"
+            :key="item.title"
+            :to="item.to"
+            link
+            :ripple="false"
+            text
+            class="scrollactive-item"
+            >{{ item.title }}</v-btn
+          >
+          <v-btn
+            link
+            :ripple="false"
+            text
+            class="scrollactive-item"
+            onclick="window.open('https://the-ocue-store.myspreadshop.com/','_blank')"
+            >Store</v-btn
+          >
+        </div>
       </v-toolbar-items>
       <!-- End header menu item -->
-      <a class="btn-default btn-border btn-opacity" target="_blank" href="https://themeforest.net/checkout/from_item/32012548?license=regular">
-        <span>buy now</span>
+      <v-spacer></v-spacer>
+      <div class="social-share-inner">
+        <Social />
+      </div>
+      <a class="btn-default btn-border btn-opacity" target="_blank" href="mailto: contact@ocunderwaterexplorers.org">
+        <span>Contact</span>
       </a>
       <v-btn
-        :ripple="false"
         icon
+        :ripple="false"
         class="ma-0 pa-0 hidden-md-and-up menu_icon"
         @click="drawer = !drawer"
         v-html="iconSvg(icon)"
@@ -284,148 +124,22 @@
 
 <script>
   import feather from "feather-icons";
+  import Social from "../social/Social";
   export default {
+    components: {
+      Social,
+    },
     data: () => ({
       drawer: false,
       items: [
-        { title: "About", to: "/about" },
-        { title: "Contact", to: "/contact" },
-      ],
-      HomeVerisiondropDownItems: [
-        { title: "Main Demo", to: "/main-demo" },
-        { title: "Main Demo Dark", to: "/main-demo-dark" },
-        { title: "Personal Portfolio", to: "/personal-portfolio" },
-        { title: "Personal Portfolio Dark", to: "landing-dark-portfolio" },
-        { title: "Interior Landing", to: "/landing-interior" },
-        { title: "Minimal Portfolio", to: "/minimal-portfolio" },
-        { title: "Digital Agency", to: "/digital-agency" },
-
-        { title: "Creative Agency", to: "/creative-agency" },
-        { title: "Corporate Business", to: "/corporate-business" },
-        {
-          title: "Personal Portfolio Landing",
-          to: "/landing-personal-portfolio",
-        },
-        { title: "Creative Agency Landing", to: "/landing-creative-agency" },
-        { title: "Business", to: "/business" },
-        { title: "Designer Portfolio", to: "/designer-portfolio" },
-        { title: "Home Particles", to: "/landing-home-particle" },
-        { title: "Studio Agency", to: "/studio-agency" },
-        { title: "Startup", to: "/startup" },
-        { title: "Creative Portfolio", to: "/creative-portfolio" },
-      ],
-      ServicesdropDownItems: [
-        { title: "Service", to: "/service" },
-        { title: "Service Details", to: "/service-details" },
-      ],
-      PagesdropDownItems: [
-        { title: "Blog List", to: "/blog" },
-        { title: "Blog Details", to: "/blog-details" },
-        { title: "Service", to: "/service" },
-        { title: "Service Details", to: "/service-details" },
-        { title: "Portfolio", to: "/portfolio" },
-        { title: "Portfolio Details", to: "/portfolio-details" },
-        { title: "404 Page", to: "/404" },
-      ],
-      blocksDropDownItems: [
-        { title: "Portfolio", to: "/portfolio" },
-        { title: "Team", to: "/team" },
-        { title: "Service", to: "/service" },
-        { title: "Video Popup", to: "/video-popup" },
-        { title: "Progressbar", to: "/progressbar" },
-        { title: "Gallery", to: "/gallery" },
-        { title: "Counters", to: "/counter" },
-        { title: "Blog List", to: "/blog" },
-        { title: "Client Logo", to: "/brand" },
-        { title: "Contact Form", to: "/contact-form" },
-        { title: "Columns", to: "/column" },
-        { title: "Button", to: "/button" },
-        { title: "Testimonial", to: "/testimonial" },
-        { title: "Pricing Plan", to: "/pricing-plan" },
-        { title: "Office Location", to: "/office-location" },
-      ],
-
-      // Bellow mobile menu items
-      homeVersionSidebarDropDownItems: [
-        {
-          items: [
-            { title: "Main Demo", to: "/main-demo" },
-            { title: "Main Demo Dark", to: "/main-demo-dark" },
-            { title: "Personal Portfolio", to: "/personal-portfolio" },
-            { title: "Personal Portfolio Dark", to: "landing-dark-portfolio" },
-            { title: "Interior Landing", to: "/landing-interior" },
-            { title: "Minimal Portfolio", to: "/minimal-portfolio" },
-            { title: "Digital Agency", to: "/digital-agency" },
-
-            { title: "Creative Agency", to: "/creative-agency" },
-            { title: "Corporate Business", to: "/corporate-business" },
-            {
-              title: "Personal Portfolio Landing",
-              to: "/landing-personal-portfolio",
-            },
-            {
-              title: "Creative Agency Landing",
-              to: "/landing-creative-agency",
-            },
-            { title: "Business", to: "/business" },
-            { title: "Designer Portfolio", to: "/designer-portfolio" },
-            { title: "Home Particles", to: "/landing-home-particle" },
-            { title: "Studio Agency", to: "/studio-agency" },
-            { title: "Startup", to: "/startup" },
-            { title: "Creative Portfolio", to: "/creative-portfolio" },
-          ],
-          title: "Home",
-        },
-      ],
-      servicesSidebarDropDownItems: [
-        {
-          items: [
-            { title: "Service", to: "/service" },
-            { title: "Service Details", to: "/service-details" },
-          ],
-          title: "Service",
-        },
-      ],
-      pagesSidebarDropDownItems: [
-        {
-          items: [
-            { title: "Blog List", to: "/blog" },
-            { title: "Blog Details", to: "/blog-details" },
-            { title: "Service", to: "/service" },
-            { title: "Service Details", to: "/service-details" },
-            { title: "Portfolio", to: "/portfolio" },
-            { title: "Portfolio Details", to: "/portfolio-details" },
-            { title: "404 Page", to: "/404" },
-          ],
-          title: "Pages",
-        },
-      ],
-      blocksSidebarDropDownItems: [
-        {
-          items: [
-            { title: "Portfolio", to: "/portfolio" },
-            { title: "Team", to: "/team" },
-            { title: "Service", to: "/service" },
-            { title: "Video Popup", to: "/video-popup" },
-            { title: "Progressbar", to: "/progressbar" },
-            { title: "Gallery", to: "/gallery" },
-            { title: "Counters", to: "/counter" },
-            { title: "Blog List", to: "/blog" },
-            { title: "Client Logo", to: "/brand" },
-            { title: "Contact Form", to: "/contact-form" },
-            { title: "Columns", to: "/column" },
-            { title: "Button", to: "/button" },
-            { title: "Testimonial", to: "/testimonial" },
-            { title: "Pricing Plan", to: "/pricing-plan" },
-            { title: "Office Location", to: "/office-location" },
-          ],
-          title: "Block",
-        },
+        { title: "Home", to: "#home" },
+        { title: "About", to: "#about" },
+        { title: "Events", to: "#events" },
+        // { title: "Blog", to: "#blog" },
       ],
       icon: "menu",
       closeIcon: "x",
     }),
-
     methods: {
       iconSvg(icon) {
         return feather.icons[icon].toSvg();

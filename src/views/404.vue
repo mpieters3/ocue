@@ -25,17 +25,17 @@
       </v-container>
     </div>
     <!-- End 404 Page  -->
-    <FooterTwo />
+    <Footer />
   </div>
 </template>
 
 <script>
   import Header from "../components/header/Header";
-  import FooterTwo from "../components/footer/FooterTwo";
+  import Footer from "../components/footer/Footer";
   export default {
     components: {
       Header,
-      FooterTwo,
+      Footer,
     },
     data() {
       return {
