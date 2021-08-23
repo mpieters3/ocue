@@ -1,5 +1,37 @@
 <template>
   <div class="active-dark bg_color--9">
+    <v-dialog
+      v-if="showVideo"
+      v-model="showVideo"
+      fullscreen
+      hide-overlay
+      overflow
+      transition="dialog-bottom-transition"
+    >
+      <v-toolbar
+        dark
+        class="fixed-bar"
+        extension-height="64px"
+      >
+        <v-toolbar-title><h3>Details</h3></v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-toolbar-items><h2>
+          <a @click="showVideo=false" class="rn-btn btn-opacity" style="font-size:20px;">
+            Close
+          </a>
+        </h2></v-toolbar-items>
+      </v-toolbar>
+        <iframe
+          width="80%"
+          height="80%"
+          src="https://www.youtube-nocookie.com/embed/0Q1ZqH-kqUw?autoplay=1&modestbranding=1"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+    </v-dialog>
+
     <!-- Start Header Area -->
     <Header />
     <!-- End Header Area -->
@@ -25,9 +57,9 @@
                   >
                     <a
                       class="btn-default btn-border btn-opacity scrollactive-item"
-                      onclick="window.open('https://www.youtube.com/watch?v=0Q1ZqH-kqUw','_blank')"
-
-                      >#DiveGUE
+                      @click="showVideo=true"
+                    >
+                      #DiveGUE
                     </a>
                   </div>
                 </div>
@@ -141,6 +173,7 @@
     },
     data() {
       return {
+        showVideo: false,
         photos: [
           {
             src: require("../assets/images/about/ocue-about-1.jpg"),
@@ -157,7 +190,7 @@
           {
             src: require("../assets/images/about/ocue-about-5.jpg"),
           },
-        ]
+        ],
       };
     },
   };
