@@ -3,8 +3,12 @@ We use Blogger as our backend for blogs, using the [this blog](https://www.blogg
 
 Generally, we'll take any HTML content from blog posts and render it nearly as is - so be careful with how you set it up.
 
+End users will view it at the [OCUE home page](https://ocunderwaterexplorers.org/#/#blog) 
+
 ## Creating a new blog
-1. Create a new post in blogger for the OCUnderwaterExplorers blog
+1. Create a new post in blogger for the [OCUnderwaterExplorers blog](https://www.blogger.com/blog/posts/5857449385985900086). Ask me if you don't have access.
+![New Post](images/NewPost.PNG)
+
 2. Start the new blog by taking the `Blog Template` from the appendix as your starter template in the HTML view. This is a sample template that generally formats well on the ocue website
 ![HTML View](images/HtmlView.PNG)
 
