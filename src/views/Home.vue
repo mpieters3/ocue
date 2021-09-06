@@ -119,20 +119,20 @@
     <!-- Start Service Area  -->
 
     <!-- Start Blog Area  -->
-    <!-- 
-    <div class="rn-blog-area pt--120 bg_color--8" id="blog">
+    <!--
+    <div class="rn-blog-area bg_color--8" id="blog" style="margin-top: -10rem !important;">
       <v-container>
         <v-row align="end" class="mb--20">
           <v-col md="12">
             <div class="text-center section-title">
-              <h2 class="heading-title">Latest News</h2>
+              <h2 class="heading-title">Wetnotes</h2>
               <p>
-                What's happening in OCUE?
+                Read what's new at OCUE
               </p>
             </div>
           </v-col>
         </v-row>
-        <Blog />
+        <BlogThree />
       </v-container>
     </div>
     -->
@@ -159,7 +159,7 @@
 <script>
   import Header from "../components/header/Header";
   import About from "../components/about/About";
-  import Blog from "../components/blog/Blog";
+  import BlogThree from "../components/blog/BlogThree";
   import Footer from "../components/footer/Footer";
   import Events from "../components/events/Events";
 
@@ -167,7 +167,7 @@
     components: {
       Header,
       About,
-      Blog,
+      BlogThree,
       Footer,
       Events,
     },

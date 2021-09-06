@@ -132,10 +132,10 @@
     data: () => ({
       drawer: false,
       items: [
-        { title: "Home", to: "#home" },
-        { title: "About", to: "#about" },
-        { title: "Events", to: "#events" },
-        // { title: "Blog", to: "#blog" },
+        { title: "Home", to: "/#home" },
+        { title: "About", to: "/#about" },
+        { title: "Events", to: "/#events" },
+        // { title: "Wetnotes", to: "/#blog" },        
       ],
       icon: "menu",
       closeIcon: "x",

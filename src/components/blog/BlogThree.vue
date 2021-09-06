@@ -1,86 +1,156 @@
 <template>
-  <v-row class="mt_dec--30">
-    <!-- Start Blog Area  -->
-    <v-col
-      lg="4"
-      md="4"
-      sm="6"
-      cols="12"
-      v-for="(item, i) in blogContent"
-      :key="i"
+    <VueSlickCarousel
+      v-if="blogContent.length > 0"
+      v-bind="settings"
+      class="slider-activation rn-slick-dot dot-light"
+      style="top:-120px"
     >
-      <div class="im_box mt--30">
-        <div class="thumbnail">
-          <router-link to="/blog-details">
-            <img class="w-100" :src="item.src" alt="Blog Images" />
-          </router-link>
-        </div>
-        <div class="content">
-          <div class="inner">
-            <div class="content_heading">
-              <div class="category_list">
-                <router-link to="/blog-details">{{
-                  item.category
-                }}</router-link>
-              </div>
-              <h4 class="heading-title">
-                <router-link to="/blog-details">{{ item.title }}</router-link>
-              </h4>
-            </div>
-            <div class="content_footer">
-              <router-link to="/blog-details" class="rn-btn btn-opacity">
-                Read More
+      <!-- Start Blog Area  -->
+      <div
+        class="slide slide-style-2 slider-box-content without-overlay d-flex align-center"
+        lg="4"
+        md="4"
+        sm="6"
+        cols="12"
+        data-black-overlay="2"
+        v-for="(item, i) in blogContent"
+        :key="i"
+      >
+        <v-container>
+          <div class="im_box mt--30">
+            <div class="thumbnail">
+              <router-link to="/blog-details">
+                <img class="w-100" :src="item.src" alt="Blog Images" />
               </router-link>
             </div>
+            <div class="content">
+              <div class="inner">
+                <div class="content_heading">
+                  <div class="category_list" v-if="!!item.labels">
+                    <router-link :to="{ name: 'BlogDetails', params: { post_id: item.id }}">
+                    <span v-html="iconSvg('tag')"></span>
+                    {{
+                      item.labels.join(', ')
+                    }}</router-link>
+                  </div>
+                  <h4 class="heading-title">
+                    <router-link :to="{ name: 'BlogDetails', params: { post_id: item.id }}">{{ item.title }}</router-link>
+                  </h4>
+                </div>
+                <div class="content_footer">
+                  <router-link :to="{ name: 'BlogDetails', params: { post_id: item.id }}" class="rn-btn btn-opacity">
+                    Read More
+                  </router-link>
+                </div>
+              </div>
+              <router-link
+                class="transparent_link"
+                :to="{ name: 'BlogDetails', params: { post_id: item.id }}"
+              ></router-link>
+            </div>
           </div>
-          <router-link
-            class="transparent_link"
-            to="/blog-details"
-          ></router-link>
-        </div>
+        </v-container>
       </div>
-    </v-col>
+    </VueSlickCarousel>
     <!-- End Blog Area  -->
-  </v-row>
 </template>
 
 <script>
+  import feather from "feather-icons";
+  import VueSlickCarousel from 'vue-slick-carousel'
+  import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+  // optional style for arrows & dots
+  import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+
   export default {
+    components: {
+      VueSlickCarousel,
+    },
+    props: {
+      'showHidden': {
+        type: Boolean,
+        default: false
+      },
+    },
     data() {
       return {
-        blogContent: [
-          {
-            src: require("../../assets/images/blog/blog-01.jpg"),
-            title: "What is the Difference between Web and Brand.",
-            category: "App Development",
-          },
-          {
-            src: require("../../assets/images/blog/blog-02.jpg"),
-            title: "A big ticket gone to be an interesting look New York.",
-            category: "React App",
-          },
-          {
-            src: require("../../assets/images/blog/blog-03.jpg"),
-            title: "Getting tickets to the big show have a closer look.",
-            category: "Photoshop",
-          },
-          {
-            src: require("../../assets/images/blog/blog-04.jpg"),
-            title: "What is the Difference between Web and Brand.",
-            category: "App Development",
-          },
-          {
-            src: require("../../assets/images/blog/blog-05.jpg"),
-            title: "A big ticket gone to be an interesting look New York.",
-            category: "React App",
-          },
-          {
-            src: require("../../assets/images/blog/blog-06.jpg"),
-            title: "Getting tickets to the big show have a closer look.",
-            category: "Photoshop",
-          },
-        ],
+        blogContent: [],
+        settings: {
+          dots: true,
+          arrows: true,
+          infinite: false,
+          initialSlide: 0,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          margin: 20,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+              }
+            },
+            {
+              breakpoint: 900,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+              }
+            },
+            {
+              breakpoint: 640,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            },
+          ]
+        },
       };
+    },
+    async mounted() {
+      const result = await this.axios.get(
+        "https://www.googleapis.com/blogger/v3/blogs/5857449385985900086/posts",
+        {
+          params: {
+            'key': process.env.VUE_APP_BLOGGER_API_KEY,
+          },
+        },
+      );
+
+      const images = [
+        require("../../assets/images/events/gsb.jpg"),
+        require("../../assets/images/events/kelp.jpg"),
+        require("../../assets/images/events/diver.jpg"),
+        require("../../assets/images/events/fins.jpg"),
+        require("../../assets/images/events/anenome.jpg"),
+        require("../../assets/images/events/more_kelp.jpg"),
+      ];      
+      
+      const BeautifulDom = require('beautiful-dom');
+
+      const filteredResult = result.data.items.filter(blog => !!!blog.labels || !!this.showHidden || !blog.labels.includes('hidden'));
+
+      filteredResult.forEach(function(blog, index){
+        const dom = new BeautifulDom(blog.content);
+        const thumbnailImg = dom.getElementById('Thumbnail');
+        
+        if (!!thumbnailImg){
+          const imgUrl=thumbnailImg.getAttribute('src');
+          blog.src = imgUrl;
+        } else {
+          blog.src = images[index % 6];
+        }
+        blog.dateString = new Date(blog.updated).toDateString();
+      });
+
+      this.blogContent = filteredResult;
+    },
+    methods: {
+      iconSvg(icon) {
+        return feather.icons[icon].toSvg();
+      },
     },
   };
 </script>

@@ -5,7 +5,8 @@ import Missing from '../views/404.vue'
 
 Vue.use(VueRouter)
 
-const routes = [{
+const routes = [
+    {
         path: '/',
         name: 'LandingHome',
         meta: {
@@ -13,6 +14,24 @@ const routes = [{
         },
         component: () =>
             import ('../views/Home.vue')
+    },
+    {
+        path: '/wetnotes',
+        name: 'Blog',
+        meta: {
+            title: 'OCUE - Wet Notes'
+        },
+        component: () =>
+            import ('../views/Blog.vue')
+    },
+    {
+        path: '/wetnotes/:post_id',
+        name: 'BlogDetails',
+        meta: {
+            title: 'OCUE - Read Wet Note'
+        },
+        component: () =>
+            import ('../views/BlogDetails.vue')
     },
     {
         path: '*',

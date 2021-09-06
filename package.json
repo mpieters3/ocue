@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "beautiful-dom": "^1.0.9",
     "core-js": "^3.6.5",
     "feather-icons": "^4.28.0",
     "vee-validate": "^3.4.5",
