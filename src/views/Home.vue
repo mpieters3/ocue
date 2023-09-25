@@ -119,8 +119,7 @@
     <!-- Start Service Area  -->
 
     <!-- Start Blog Area  -->
-    <!--
-    <div class="rn-blog-area bg_color--8" id="blog" style="margin-top: -10rem !important;">
+    <div class="rn-blog-area bg_color--8" id="wetnotes" style="margin-top: -10rem !important;">
       <v-container>
         <v-row align="end" class="mb--20">
           <v-col md="12">
@@ -135,7 +134,6 @@
         <BlogThree />
       </v-container>
     </div>
-    -->
     <!-- End Blog Area  -->
 
     <!-- Start Footer Area  -->

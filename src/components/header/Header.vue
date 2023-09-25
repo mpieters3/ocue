@@ -135,7 +135,7 @@
         { title: "Home", to: "/#home" },
         { title: "About", to: "/#about" },
         { title: "Events", to: "/#events" },
-        // { title: "Wetnotes", to: "/#blog" },        
+        { title: "Wetnotes", to: "/#wetnotes" },        
       ],
       icon: "menu",
       closeIcon: "x",

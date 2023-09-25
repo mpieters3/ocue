@@ -9,13 +9,13 @@
             <v-row>
           <v-col lg="12">
             <div class="text-center section-title pt--80 pb--60">
-              <h2 class="heading-title">Wetnotes Preview</h2>
+              <h2 class="heading-title">Wetnotes</h2>
             </div>
           </v-col>
         </v-row>
 
       <v-container>
-        <BlogThree showHidden="true" />
+        <BlogThree v-bind:showHidden="false" />
       </v-container>
     </div>
     <!-- Start blog Area  -->

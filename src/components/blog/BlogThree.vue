@@ -129,8 +129,7 @@
       ];      
       
       const BeautifulDom = require('beautiful-dom');
-
-      const filteredResult = result.data.items.filter(blog => !!!blog.labels || !!this.showHidden || !blog.labels.includes('hidden'));
+      const filteredResult = result.data.items.filter(blog => !!this.showHidden || !!!blog.labels || !blog.labels.includes('hidden'));
 
       filteredResult.forEach(function(blog, index){
         const dom = new BeautifulDom(blog.content);

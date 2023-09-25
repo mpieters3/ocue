@@ -107,6 +107,8 @@
   import 'vue-slick-carousel/dist/vue-slick-carousel.css'
   // optional style for arrows & dots
   import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+  import { RRule, rrulestr } from 'rrule';
+
 
   export default {
     components: {
@@ -167,13 +169,23 @@
         },
       );
 
-      result.data.items.forEach(function(event, index){
-        if (event.start.date) {
-          event.startTime = event.start.date
-        } else {
-          event.startTime = event.start.dateTime
-        }
 
+      result.data.items.forEach(function(event, index){
+
+        if (event.recurrence !== undefined) {
+          const rrule = rrulestr(event.recurrence[0]);
+
+          const now = new Date();
+          const nextOccurrence = rrule.after(now, { inc: true });
+        event.startTime = nextOccurrence;
+        }
+        else {
+          if (event.start.date) {
+            event.startTime = event.start.date
+          } else {
+            event.startTime = event.start.dateTime
+          }
+        }
         const dateObj = new Date(event.startTime);
         event.startFriendly = dateObj.toDateString();
 
